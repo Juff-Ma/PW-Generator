@@ -4,6 +4,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="PW_Generator.MainWindow"
-        Title="PW_Generator">
-    Welcome to Avalonia!
+        Title="Password Generator"
+		TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+		MinWidth="500" MinHeight="250"
+		ExtendClientAreaToDecorationsHint="True"
+		Icon="lock.ico">
+	<Panel>
+		<ExperimentalAcrylicBorder IsHitTestVisible="False">
+			<ExperimentalAcrylicBorder.Material>
+				<ExperimentalAcrylicMaterial
+					BackgroundSource="Digger"
+					TintColor="LightGray"
+					TintOpacity="1"
+					MaterialOpacity="0.45" />
+			</ExperimentalAcrylicBorder.Material>
+		</ExperimentalAcrylicBorder>
+		<StackPanel>
+			<Label IsHitTestVisible="False" Name="title" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">Password Generator</Label>
+			<StackPanel HorizontalAlignment="Center">
+				<ToggleSwitch Margin="3" Name="custom">Use Custom</ToggleSwitch>
+				<CheckBox Name="lettersSmallBox" IsChecked="True">Use small letters</CheckBox>
+				<CheckBox Name="lettersBigBox" IsChecked="True">Use big letters</CheckBox>
+				<CheckBox Name="numbersBox" IsChecked="True">Use numbers</CheckBox>
+				<CheckBox Name="charsBox" IsChecked="True">Use special chars</CheckBox>
+				<TextBox IsEnabled="False" Name="layout" ToolTip.ShowDelay="2" ToolTip.Tip="Use Layout: '?: random char'  '=: number'  '%: special char'  '!#: letter small'  '|#: letter big' '#: letter'" Margin="2" Width="250" HorizontalAlignment="Right" Watermark="Layout: ????-????-????-????"/>
+				<NumericUpDown Margin="7" Name="length" Watermark="length"/>
+				<Button Name="gen" Margin="15">Generate</Button>
+			</StackPanel>
+			<TextBox IsReadOnly="True" Name="output" Watermark="Output"/>
+		</StackPanel>
+	</Panel>
 </Window>

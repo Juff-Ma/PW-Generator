@@ -9,6 +9,12 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove=".gitignore" />
+    <None Remove="lock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="lock.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
     <!--This helps with theme dll-s trimming.
