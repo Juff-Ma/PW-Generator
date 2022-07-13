@@ -21,6 +21,22 @@ namespace PW_Generator
             custom.Checked += Custom_Checked;
             custom.Unchecked += Custom_Checked;
             gen.Click += Gen_Click;
+            save.Click += Save_Click;
+        }
+
+        private async void Save_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            FileDialogFilter filter1 = new();filter1.Name = "Text Files";filter1.Extensions = new System.Collections.Generic.List<string>(){ "txt" };
+            FileDialogFilter filter2 = new(); filter2.Name = "All Files"; filter2.Extensions = new System.Collections.Generic.List<string>() { "*" };
+            var saveDialog = new SaveFileDialog() { DefaultExtension = ".txt", Title = "save password", InitialFileName = "password", Filters = new System.Collections.Generic.List<FileDialogFilter>() { filter1, filter2 } };
+
+            string? path = await saveDialog.ShowAsync(this);
+
+            if (path == null || path == "")
+            {
+                return;
+            }
+            System.IO.File.WriteAllText(path, output.Text);
         }
 
         private void Gen_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
@@ -82,6 +98,7 @@ namespace PW_Generator
 
                 output.Text = new string(tmp);
             }
+            save.IsEnabled = true;
         }
 
         private void Custom_Checked(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
@@ -91,6 +108,7 @@ namespace PW_Generator
             numbersBox.IsEnabled = !numbersBox.IsEnabled;
             charsBox.IsEnabled = !charsBox.IsEnabled;
             layout.IsEnabled = !layout.IsEnabled;
+            length.IsEnabled = !length.IsEnabled;
         }
     }
 }

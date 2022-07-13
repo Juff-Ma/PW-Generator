@@ -7,9 +7,10 @@
         Title="Password Generator"
 		TransparencyLevelHint="AcrylicBlur"
         Background="Transparent"
-		MinWidth="500" MinHeight="250"
+		MinWidth="500" MinHeight="400"
 		ExtendClientAreaToDecorationsHint="True"
-		Icon="lock.ico">
+		Icon="lock.ico"
+		Width="650" Height="525">
 	<Panel>
 		<ExperimentalAcrylicBorder IsHitTestVisible="False">
 			<ExperimentalAcrylicBorder.Material>
@@ -29,10 +30,11 @@
 				<CheckBox Name="numbersBox" IsChecked="True">Use numbers</CheckBox>
 				<CheckBox Name="charsBox" IsChecked="True">Use special chars</CheckBox>
 				<TextBox IsEnabled="False" Name="layout" ToolTip.ShowDelay="2" ToolTip.Tip="Use Layout: '?: random char'  '=: number'  '%: special char'  '!#: letter small'  '|#: letter big' '#: letter'" Margin="2" Width="250" HorizontalAlignment="Right" Watermark="Layout: ????-????-????-????"/>
-				<NumericUpDown Margin="7" Name="length" Watermark="length"/>
+				<NumericUpDown Minimum="0" Margin="7" Name="length" Watermark="length"/>
 				<Button Name="gen" Margin="15">Generate</Button>
 			</StackPanel>
 			<TextBox IsReadOnly="True" Name="output" Watermark="Output"/>
 		</StackPanel>
+		<Button Name="save" Margin="15" IsEnabled="False" HorizontalAlignment="Right" VerticalAlignment="Bottom">Save</Button>
 	</Panel>
 </Window>
