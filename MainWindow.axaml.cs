@@ -77,12 +77,12 @@ namespace PW_Generator
                             tmp[i] = chars[r.Next(0, chars.Length)];
                             break;
                         case '#':
-                            if (tmp[i] - 1 == '!')
+                            if (tmp[i - 1] == '!')
                             {
                                 tmp[i - 1] = '\0';
                                 tmp[i] = lettersSmall[r.Next(0, lettersSmall.Length)];
                             }
-                            else if (tmp[i] - 1 == '|')
+                            else if (tmp[i - 1] == '|')
                             {
                                 tmp[i - 1] = '\0';
                                 tmp[i] = lettersBig[r.Next(0, lettersBig.Length)];
